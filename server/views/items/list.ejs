@@ -1,0 +1,46 @@
+<% include ../partials/header.ejs %>
+<% include ../partials/main_nav.ejs %>
+<main class="container">
+    <div class="row">
+        <div class="offset-md-0 col-md-9">
+            <h1><% title %> </h1>  
+            <a href="/itemlist/add" class="btn btn-primary" 
+            role="button"><i class="fas fa-plus-circle"></i> Add an Item</a>      
+        <br>
+        <br>
+        <table class="table table-bordered table-striped table-hover">
+            <tr class="d-flex">
+                <th class="text-center col-2">Item</th>
+                <th class="text-center col-1">Stock</th>
+                <th class="text-center col-1">Price</th>
+                <th class="text-center col-2">Model</th>
+                <th class="text-center col-2">Condition</th>
+                <th class="text-center col-4">Description</th>
+                
+            </tr>
+            <% for(let count=0;count<ItemList.length;count++) { %>    
+            <tr class="d-flex">
+                <td class="text-center col-2"><%= ItemList[count].item %></td>
+                <td class="text-center col-1"><%= ItemList[count].stock %></td>
+                <td class="text-center col-1"><%= ItemList[count].price %></td>
+                <td class="text-center col-2"><%= ItemList[count].model %></td>
+                <td class="text-center col-2"><%= ItemList[count].condition %></td>
+                <td class="text-center col-4"><%= ItemList[count].description %></td>
+                <td class="text-center col-2">
+                    <a href="/itemlist/edit/<%= ItemList[count]._id %>" 
+                        class="btn btn-primary btn-sm">
+                        <i class="fas fa-pencil-alt"></i> Edit</a>
+                </td>
+                <td class="text-center col-2">
+                    <a href="/itemlist/delete/<%= ItemList[count]._id %>" 
+                        class="btn btn-danger btn-sm">
+                        <i class="fas fa-trash-alt"></i> Delete</a>
+                </td>
+            </tr>
+            <% } %>
+        </table>
+    </div>
+    </div>
+</main>
+<% include ../partials/bottom_nav.ejs %>
+<% include ../partials/footer.ejs %>
