@@ -82,6 +82,7 @@ module.exports.processEditPage = (req,res,next)=>{
     try{
         const id = req.params.id;
         let updatedItem = Item({
+            "_id":id,
             "item":req.body.item,
             "stock":req.body.stock,
             "price":req.body.price,

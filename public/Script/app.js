@@ -2,7 +2,16 @@
 
 (function(){
     function Start(){
-        console.log("Application started....");
+        console.log("App Started")
+        let deleteButtons = document.querySelectorAll('.btn-danger');
+    for(button of deleteButtons){
+        button.addEventListener('click',(event)=>{
+            if(!confirm("Are you sure?")){
+                event.preventDefault();
+                window.location.assign('/itemlist');
+            }
+        });
+    }
     }
     window.addEventListener("load",Start);
 })();
