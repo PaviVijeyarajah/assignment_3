@@ -12,7 +12,6 @@ module.exports.dislayItemlist = async (req,res,next)=>{ //< Mark function as asy
        });
     }catch(err){
        console.error(err);
-       //Handle error
        res.render('items/list', {
           error: 'Error on server'
        });
@@ -39,12 +38,12 @@ module.exports.dislayItemlist = async (req,res,next)=>{ //< Mark function as asy
 module.exports.processAddPage = async (req,res,next)=>{
     try{
         let newItem = Item({
-            "item":req.body.item,
-         "stock":req.body.stock,
-         "price":req.body.price,
-         "model":req.body.model,
-         "condition":req.body.condition,
-         "description":req.body.description
+        "item":req.body.item,
+        "stock":req.body.stock,
+        "price":req.body.price,
+        "model":req.body.model,
+        "condition":req.body.condition,
+        "description":req.body.description
         });
         Item.create(newItem).then(() =>{
             res.redirect('/itemlist')

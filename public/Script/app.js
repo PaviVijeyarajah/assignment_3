@@ -12,6 +12,6 @@
             }
         });
     }
-    }
+    }   
     window.addEventListener("load",Start);
 })();
