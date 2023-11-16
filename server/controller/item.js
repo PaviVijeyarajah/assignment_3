@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
-//const { router } = require('../config/app');
 let Item = require('../models/item');
 
+//keeps important parts of the routes in the controller for security purposes
 module.exports.dislayItemlist = async (req,res,next)=>{ //< Mark function as async
     try{
        const ItemList = await Item.find(); //< Use of await keyword
@@ -17,7 +17,7 @@ module.exports.dislayItemlist = async (req,res,next)=>{ //< Mark function as asy
        });
     }
  };
-
+//get displays the add page
  module.exports.displayAddPage = async (req,res,next)=>{
     try{
         res.render('items/add',
@@ -34,7 +34,7 @@ module.exports.dislayItemlist = async (req,res,next)=>{ //< Mark function as asy
         });
     }
 };
-
+//post processes the add page
 module.exports.processAddPage = async (req,res,next)=>{
     try{
         let newItem = Item({
@@ -57,7 +57,7 @@ module.exports.processAddPage = async (req,res,next)=>{
         });
     }
 };
-
+//get displays edit page
 module.exports.displayEditPage = async (req,res,next)=>{
     try{
     const id = req.params.id;
@@ -76,7 +76,7 @@ catch(error){
     });
 }
 }
-
+//post processes edit page
 module.exports.processEditPage = (req,res,next)=>{
     try{
         const id = req.params.id;
@@ -101,7 +101,7 @@ module.exports.processEditPage = (req,res,next)=>{
         });
     }
 }
-
+//performs delete in list page
 module.exports.performDelete = (req,res,next)=>{
     try{
         let id = req.params.id;

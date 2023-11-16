@@ -5,7 +5,7 @@
         <div class="offset-md-0 col-md-9">
             <h1><% title %> </h1>  
             <a href="/itemlist/add" class="btn btn-primary" 
-            role="button"><i class="fas fa-plus-circle"></i> Add an Item</a>      
+            role="button"><i class="fa-solid fa-cart-plus"></i> Add an Item</a>      
         <br>
         <br>
         <table class="table table-dark table-bordered table-striped table-hover">
@@ -20,6 +20,7 @@
                 <th class="text-center col-2"></th>
                 
             </tr>
+            <!--Iterates through values in the database and adds values in the website database accordingly-->
             <% for(let count=0;count<ItemList.length;count++) { %>    
             <tr class="d-flex">
                 <td class="text-center col-2"><%= ItemList[count].item %></td>
